@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {NavLink} from 'react-router-dom';
+
 
 const MovieList = props => {
   const [movies, setMovies] = useState([])
@@ -24,14 +26,14 @@ const MovieList = props => {
         <MovieDetails key={movie.id} movie={movie} />
       ))}
     </div>
-  );
+  ); 
 }
 
 function MovieDetails({ movie }) {
   const { title, director, metascore, stars } = movie;
   return (
     <div className="movie-card">
-      <h2>{title}</h2>
+     <NavLink to={`/movies/${movie.id}`}><h2>{title}</h2></NavLink>
       <div className="movie-director">
         Director: <em>{director}</em>
       </div>
