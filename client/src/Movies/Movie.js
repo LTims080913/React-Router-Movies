@@ -33,7 +33,7 @@ console.log(id, movie);
     return <div>Loading movie information...</div>;
     console.log("there was an error")
   }
-  console.log("success")
+
   const { title, director, metascore, stars } = movie;
   return (
     <div className="save-wrapper">

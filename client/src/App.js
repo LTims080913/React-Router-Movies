@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router-dom";
 import SavedList from './Movies/SavedList';
 import MovieList from './Movies/MovieList';
 import Movie from './Movies/Movie';
-import { BrowserRouter as Router } from "react-router-dom";
 
 
 const App = () => {
@@ -14,16 +13,17 @@ const App = () => {
   };
 
   return (
-    <Router>
+    <div>
       <SavedList list={savedList} />
-     <Route component= {MovieList} exact path="/"/>
+      <Switch>
         <Route path="/movies/:id">
           <Movie addToSavedList={addToSavedList} />
         </Route>
-        
-          
-     
-    </Router>
+        <Route path="/">
+          <MovieList />
+        </Route>
+      </Switch>
+    </div>
   );
 };
 
